@@ -172,7 +172,7 @@ body:has( .freaky-fungus.dead) {
     background: rgb(59 59 59 / 70%);
     top: 0;
     left: 0;
-}
+}   
 
 .attack-btn.arcane-scepter {
     background-image: url('./images/arcane-scepter.png');
