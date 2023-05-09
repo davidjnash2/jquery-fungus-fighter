@@ -43,13 +43,26 @@ function render() {
     console.log('fungusHP is now', fungusHP);
     $('#myAPScore').text(myAP);
     $('#fungusHPScore').text(fungusHP);
+    $('#ap-meter').val(myAP);
+    $('#hp-meter').val(fungusHP);
+
+
+    // if (fungusHP < 50 ) {
+    //     $('#fungusHPScore').setInterval(growFungus, 1000);
+    // };
 
     if ( fungusHP === 0 && myAP > 0 ) {
         $('#walk').toggleClass('dead');
     } else if ( fungusHP > 0 && myAP === 0 ) {
         $('#walk').toggleClass('jump');
-    }
+    };
+
+    
 }
+
+// function growFungus() {
+//     fungusHP++;
+// }
 
 function scepterAttack() {
     // console.log('scepter!');
