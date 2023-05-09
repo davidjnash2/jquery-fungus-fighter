@@ -6,8 +6,8 @@ $(document).ready(onReady);
 // let fungusHP = 100;
 
 
-let fungusHP = 100;
-let myAP = 100;
+let fungusHP = 100; // declare global variable to set starting value for HP
+let myAP = 100; // declare global variable to set starting value for AP
 
 
 
@@ -39,50 +39,41 @@ function render() {
         fungusHP = 0
     };
     
-    // if ( fungusHP === 0 && myAP > 0 ) {
-    //     $('#walk').css('.freaky-fungus.dead');
-    // } else if ( myAP === 0 && fungusHP > 0 ){
-    //     $('#walk').css('.freaky-fungus.jump');
-    //     $('#attack-btn').css('disabled');
-    // } else {
-    // };
-
-
     console.log('myAP is now:', myAP);
     console.log('fungusHP is now', fungusHP);
     $('#myAPScore').text(myAP);
     $('#fungusHPScore').text(fungusHP);
 
+    if ( fungusHP === 0 && myAP > 0 ) {
+        $('#walk').toggleClass('dead');
+    } else if ( fungusHP > 0 && myAP === 0 ) {
+        $('#walk').toggleClass('jump');
+    }
 }
 
 function scepterAttack() {
     // console.log('scepter!');
-    
-   
     myAP -= 12;
     fungusHP -= 14;
-    
     render();
-    // give disabled attribute if myAP === 0
-     
 } // end scepterAttack function
 
 function entangleAttack() {
-    console.log('entangle!');
+    // console.log('entangle!');
     myAP -= 23;
     fungusHP -= 9;
     render();
 } // end entangleAttack function
 
 function bladeAttack() {
-    console.log('blade!');
+    // console.log('blade!');
     myAP -= 38;
     fungusHP -= 47;
     render();
 } // end bladeAttack function
 
 function fireAttack(){
-    console.log('fire!');
+    // console.log('fire!');
     myAP -= 33;
     fungusHP -= 25;
     render();
