@@ -2,6 +2,7 @@ $(document).ready(onReady);
 
 let fungusHP = 100; // declare global variable to set starting value for HP
 let myAP = 100; // declare global variable to set starting value for AP
+// setInterval(growFungus, 1000);
 
 
 function onReady() { // declare onReady function
@@ -9,15 +10,7 @@ function onReady() { // declare onReady function
     $('#scepterButt').on('click', scepterAttack); // event listener to register scepter attack button click
     $('#entangleButt').on('click', entangleAttack); // event listener to register entangle attack button click
     $('#bladeButt').on('click', bladeAttack); // event listener to register blade attack button click
-    $('#fireButt').on('click', fireAttack); // event listener to register fire attack button click
-    
-    
-    
-    
-    
-    
-    // $('#attack-btn').addClass('disabled'); 
-    // think ^this^ is needed to disable buttons, but not entirely certain any more, cannot get it to work
+    $('#fireButt').on('click', fireAttack); // event listener to register fire attack button click   
 }
    
 
@@ -42,33 +35,20 @@ function render() { // declare render function
     $('#ap-meter').val(myAP); // set progress bar on DOM to change with AP value
     $('#hp-meter').val(fungusHP); // set progress bar on DOM to change with HP value
 
-
-
-
-    // still working on getting this interval/health gain section to work
-    // if (fungusHP < 50 ) {
-    //     $('#fungusHPScore').setInterval(growFungus, 1000);
-    // };
-
-
-
-
-
     if ( fungusHP === 0 && myAP > 0 ) { // start conditional to display fight results on DOM
         $('#walk').toggleClass('dead'); // if mushroom loses, it dies
     } else if ( fungusHP > myAP && myAP === 0 ) { // or if I lose
         $('#walk').removeClass('walk').addClass('jump');
-        $('#attack-btn').addClass('disabled');
+        $('.attack-btn').prop('disabled', true);
     };
 
 } // end render function
 
 
-
-// trying to link this function to setInterval line in 
-// render function, but can't get to work, so commenting out for now
 // function growFungus() {
-//     fungusHP++;
+//     if ( fungusHP < 50 && fungusHP !== 0 ){
+//     fungusHP+1};
+//     render();
 // } // end growFungus function
 
 
