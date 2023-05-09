@@ -53,25 +53,13 @@ function render() { // declare render function
 
 
 
-    
+
     if ( fungusHP === 0 && myAP > 0 ) { // start conditional to display fight results on DOM
         $('#walk').toggleClass('dead'); // if mushroom loses, it dies
     } else if ( fungusHP > myAP && myAP === 0 ) { // or if I lose
-        $('#walk').toggleClass('jump'); //mushroom happy
-    }; // end conditional 
-
-
-
-
-
-
-
-
-    // conditional ^above^ not working for jump, and below not working for button
-    // disable, will attempt to fix one or both in morning prior to submitting
-    // if ( myAP === 0 ) {
-    //     $('#attack-btn').attr('disabled', true);
-    // };
+        $('#walk').removeClass('walk').addClass('jump');
+        $('#attack-btn').addClass('disabled');
+    };
 
 } // end render function
 
